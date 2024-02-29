@@ -1,7 +1,7 @@
 import random
 import time
 from hangman_create_and_populate_database import choose_random_word
-from hangman_score_database import insert_data, generate_highscore, display_highscore_info
+from hangman_score_database import insert_data, get_highscore, display_highscore_info
 
 
 DIFFICULTY_INDEX = {'easy': 1, 'hard': 2, 'impossible': 3}
@@ -31,7 +31,7 @@ def check_highscore(time_score):
     :param time_score:
     :return: True
     """
-    current_highscore = generate_highscore()
+    current_highscore = get_highscore()
 
     if float(time_score) < float(current_highscore):
         print('Congrats, you got a high score!')
