@@ -41,7 +41,7 @@ def insert_data(difficulty, time, player_name):
     conn.close()
 
 
-def generate_highscore():
+def get_highscore():
     """
     Finds the current high score from the database
     :return: high_score_str
@@ -69,7 +69,7 @@ def display_highscore_info():
     conn = get_connection()
     cursor = conn.cursor()
 
-    elapsed_time = generate_highscore()
+    elapsed_time = get_highscore()
 
     cursor.execute(f"SELECT * FROM scores WHERE time= {elapsed_time}")
     row = cursor.fetchone()
